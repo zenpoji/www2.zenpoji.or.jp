@@ -1,0 +1,46 @@
+# 接続情報・秘密情報
+/wp-config.php
+/wp-config.php.*
+.env
+.env.*
+!.env.example
+/auth.json
+/.htpasswd
+
+# アップロード・キャッシュ・更新時の一時ファイル
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/litespeed/
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup/
+/wp-content/blogs.dir/
+/.maintenance
+
+# バックアップ（使用するプラグインに合わせて追加）
+/wp-content/ai1wm-backups/
+/wp-content/updraft/
+/wp-content/xserver-migrator/
+/wp-content/backups/
+/backups/
+*.sql
+!/wp-content/plugins/**/*.sql
+*.sql.gz
+*.sql.zip
+*.wpress
+*.bak
+
+# ログ
+*.log
+error_log
+
+# 再インストールできる依存パッケージ
+node_modules/
+/vendor/
+
+# PC・エディター固有のファイル
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
