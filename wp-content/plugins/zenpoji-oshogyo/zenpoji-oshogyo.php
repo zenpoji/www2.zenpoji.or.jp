@@ -2,6 +2,7 @@
 /**
  * Plugin Name: 善法寺 お聖教
  * Description: お聖教を「お知らせ（投稿）」とは別の投稿タイプとして管理・表示します。
+ * Version: 1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,6 +14,14 @@ add_action( 'init', 'zenpoji_oshogyo_register', 0 );
 add_filter( 'get_calendar_args', 'zenpoji_oshogyo_calendar_args' );
 add_filter( 'day_link', 'zenpoji_oshogyo_date_link' );
 add_filter( 'month_link', 'zenpoji_oshogyo_date_link' );
+
+register_activation_hook( __FILE__, 'zenpoji_oshogyo_activate' );
+register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+
+function zenpoji_oshogyo_activate() {
+	zenpoji_oshogyo_register();
+	flush_rewrite_rules();
+}
 
 function zenpoji_oshogyo_is_context() {
 	return is_singular( 'oshogyo' )
